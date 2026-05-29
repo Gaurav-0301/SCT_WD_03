@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL El Clasico Tic-Tac-Toe — Task 03</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <!-- Header / Tracker metadata -->
+        <div class="game-header">
+            <span>SCT_WD_3 — TASK 03</span>
+            <span class="ipl-tag">IPL EL CLASICO 🏏</span>
+        </div>
+
+        <!-- Mode Selectors -->
+        <div class="mode-container">
+            <button class="mode-btn active" id="pvp-mode">Player vs Player</button>
+            <button class="mode-btn" id="ai-mode">Vs Computer (AI)</button>
+        </div>
+
+        <!-- Real-time Turn Status Display -->
+        <div class="status-panel" id="status-text">
+            Turn: <span class="rcb-text">RCB (X)</span>
+        </div>
+
+        <!-- Interactive 3x3 Game Board -->
+        <div class="game-board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <!-- Action Controls -->
+        <button class="reset-btn" id="reset-button">Reset Match</button>
+    </div>
+
+    <!-- Win / Draw Modal Overlay Popup -->
+    <div class="overlay" id="overlay">
+        <div class="modal">
+            <h2 id="modal-title">RCB Wins!</h2>
+            <p id="modal-subtitle">🏆 PLAY BOLD</p>
+            <button class="reset-btn" id="modal-close-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
