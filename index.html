@@ -3,51 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IPL El Clasico Tic-Tac-Toe — Task 03</title>
+    <title>Minimalist Tic-Tac-Toe — Task 03</title>
     <link rel="stylesheet" href="style.css">
+    <!-- Canvas Confetti Library for high performance particle rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 
     <div class="game-container">
-        <!-- Header / Tracker metadata -->
+        <!-- System Task Header -->
         <div class="game-header">
-            <span>SCT_WD_3 — TASK 03</span>
-            <span class="ipl-tag">IPL EL CLASICO 🏏</span>
+            <span>SCT_WD_3</span>
+            <span>TIC-TAC-TOE</span>
         </div>
 
-        <!-- Mode Selectors -->
+        <!-- Mode Selectors Toggle -->
         <div class="mode-container">
-            <button class="mode-btn active" id="pvp-mode">Player vs Player</button>
-            <button class="mode-btn" id="ai-mode">Vs Computer (AI)</button>
+            <button class="mode-btn active" id="pvp-mode">2 Players</button>
+            <button class="mode-btn" id="ai-mode">Vs Computer</button>
         </div>
 
-        <!-- Real-time Turn Status Display -->
-        <div class="status-panel" id="status-text">
-            Turn: <span class="rcb-text">RCB (X)</span>
+        <!-- Dynamic Dynamic Name Input Block Form -->
+        <div class="name-input-wrapper" id="name-form">
+            <div class="input-group" id="p1-group">
+                <label for="p1-name">Player 1 (X)</label>
+                <input type="text" id="p1-name" value="Player 1" placeholder="Enter Name">
+            </div>
+            <div class="input-group" id="p2-group">
+                <label for="p2-name">Player 2 (O)</label>
+                <input type="text" id="p2-name" value="Player 2" placeholder="Enter Name">
+            </div>
+            <button class="start-btn" id="start-game-btn">Start Match</button>
         </div>
 
-        <!-- Interactive 3x3 Game Board -->
-        <div class="game-board" id="board">
-            <div class="cell" data-index="0"></div>
-            <div class="cell" data-index="1"></div>
-            <div class="cell" data-index="2"></div>
-            <div class="cell" data-index="3"></div>
-            <div class="cell" data-index="4"></div>
-            <div class="cell" data-index="5"></div>
-            <div class="cell" data-index="6"></div>
-            <div class="cell" data-index="7"></div>
-            <div class="cell" data-index="8"></div>
-        </div>
+        <!-- Interactive Core Gameplay Layout Area (Hidden until names submitted) -->
+        <div class="game-play-area hidden" id="play-area">
+            <div class="status-panel" id="status-text">
+                Turn: Ready
+            </div>
 
-        <!-- Action Controls -->
-        <button class="reset-btn" id="reset-button">Reset Match</button>
+            <div class="game-board" id="board">
+                <div class="cell" data-index="0"></div>
+                <div class="cell" data-index="1"></div>
+                <div class="cell" data-index="2"></div>
+                <div class="cell" data-index="3"></div>
+                <div class="cell" data-index="4"></div>
+                <div class="cell" data-index="5"></div>
+                <div class="cell" data-index="6"></div>
+                <div class="cell" data-index="7"></div>
+                <div class="cell" data-index="8"></div>
+            </div>
+
+            <button class="reset-btn" id="reset-button">Reset Match</button>
+        </div>
     </div>
 
-    <!-- Win / Draw Modal Overlay Popup -->
+    <!-- Celebration / Game Over End Overlay Screen -->
     <div class="overlay" id="overlay">
         <div class="modal">
-            <h2 id="modal-title">RCB Wins!</h2>
-            <p id="modal-subtitle">🏆 PLAY BOLD</p>
+            <div class="modal-icon" id="modal-icon">🏆</div>
+            <h2 id="modal-title">Winner!</h2>
+            <p id="modal-subtitle">Congratulations</p>
             <button class="reset-btn" id="modal-close-btn">Play Again</button>
         </div>
     </div>
