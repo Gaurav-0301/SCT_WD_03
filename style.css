@@ -1,41 +1,50 @@
 :root {
-  --bg-gradient: radial-gradient(circle at center, #1e1e24 0%, #0f0f12 100%);
-  --panel-bg: rgba(26, 26, 32, 0.85);
-  --accent-blue: #3b82f6;
-  --accent-purple: #a855f7;
-  --text-primary: #f8fafc;
-  --text-muted: #64748b;
-  --border-glow: rgba(255, 255, 255, 0.08);
+  /* Clean Premium Palette */
+  --bg-main: #f8fafc;          /* Ultra-clean slate background */
+  --card-bg: #ffffff;          /* Pure white for interactive areas */
+  --text-main: #0f172a;        /* High-contrast deep charcoal text */
+  --text-muted: #64748b;       /* Cool gray for sub-labels */
+  
+  /* Vibrant & Readable Game Accents */
+  --accent-x: #2563eb;         /* Royal Blue for Player X */
+  --accent-o: #dc2626;         /* Crimson Rose for Player O */
+  --accent-hover: #f1f5f9;     /* Soft grey hover state */
+  
+  /* System Controls */
+  --border-light: #e2e8f0;
+  --radius-lg: 20px;
+  --radius-md: 12px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
 }
 
 body {
   min-height: 100vh;
-  background: var(--bg-gradient);
+  background-color: var(--bg-main);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
+  padding: 24px;
 }
 
-/* Glassmorphism Calculator Frame Wrapper Container */
+/* Central Project Container Card */
 .game-container {
-  background: var(--panel-bg);
-  backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glow);
-  padding: 30px;
-  border-radius: 28px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  padding: 32px;
+  border-radius: var(--radius-lg);
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05),
+              0 8px 16px -6px rgba(15, 23, 42, 0.05);
 }
 
+/* Scannable Internship Header Data */
 .game-header {
   display: flex;
   justify-content: space-between;
@@ -43,18 +52,19 @@ body {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--text-muted);
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   margin-bottom: 24px;
+  text-transform: uppercase;
 }
 
-/* Clean Pill Toggles */
+/* Premium Segmented Mode Toggles */
 .mode-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 6px;
-  background: rgba(0, 0, 0, 0.3);
+  gap: 4px;
+  background: #f1f5f9;
   padding: 4px;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   margin-bottom: 24px;
 }
 
@@ -62,20 +72,21 @@ body {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  padding: 12px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.25s ease;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
 }
 
 .mode-btn.active {
-  background: rgba(255, 255, 255, 0.07);
-  color: var(--text-primary);
+  background: var(--card-bg);
+  color: var(--text-main);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.05);
 }
 
-/* User Setup Name Input Layout UI */
+/* User Setup Name Inputs Block */
 .name-input-wrapper {
   display: flex;
   flex-direction: column;
@@ -85,126 +96,138 @@ body {
 .input-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   text-align: left;
 }
 
 .input-group label {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.75rem;
+  font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 .input-group input {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 14px;
-  border-radius: 12px;
-  color: var(--text-primary);
-  font-size: 1rem;
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  font-weight: 500;
   outline: none;
-  transition: border-color 0.2s ease;
+  transition: all 0.15s ease;
 }
 
 .input-group input:focus {
-  border-color: var(--accent-blue);
+  border-color: var(--accent-x);
+  background: var(--card-bg);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
-/* Core System Button Styling blueprints */
-.start-btn, .reset-btn {
+/* Action Control Buttons */
+.start-btn {
   width: 100%;
-  background: var(--text-primary);
-  color: #000;
+  background: var(--text-main);
+  color: #ffffff;
   border: none;
-  padding: 16px;
-  border-radius: 14px;
-  font-size: 1rem;
-  font-weight: 700;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.1s ease, background-color 0.2s ease;
 }
 
-.start-btn:hover, .reset-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.start-btn:hover {
+  background: #1e293b;
+}
+
+.start-btn:active, .reset-btn:active {
+  transform: scale(0.98);
 }
 
 .reset-btn {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-primary);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+  background: #f1f5f9;
+  color: var(--text-main);
+  border: none;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.1s ease, background-color 0.2s ease;
 }
 
 .reset-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: #e2e8f0;
 }
 
-/* State management utility class */
 .hidden { display: none !important; }
 
-/* In-game HUD Status Header Display */
+/* Real-Time Live Turning Status Display */
 .status-panel {
-  color: var(--text-primary);
-  font-size: 1.15rem;
-  font-weight: 500;
+  color: var(--text-main);
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 20px;
   text-align: center;
 }
 
-/* Grid layout controls */
+/* Interactive 3x3 Gaming Arena Grid */
 .game-board {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
+  gap: 12px;
   margin-bottom: 24px;
 }
 
 .cell {
   aspect-ratio: 1;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 18px;
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 2.2rem;
-  font-weight: 300;
-  color: var(--text-primary);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 2.5rem;
+  transition: all 0.15s ease;
 }
 
 .cell:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--accent-hover);
+  border-color: #cbd5e1;
 }
 
+/* Crisp Symbol Placements UI */
 .cell.x-piece {
-  color: var(--accent-blue);
-  font-weight: 600;
+  color: var(--accent-x);
+  font-weight: 700;
 }
 
 .cell.o-piece {
-  color: var(--accent-purple);
-  font-weight: 600;
+  color: var(--accent-o);
+  font-weight: 700;
 }
 
-/* Overlay & Endgame Result Modal Viewports */
+/* Modal End Game Overlay Filters */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(7, 7, 9, 0.85);
-  backdrop-filter: blur(12px);
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
   z-index: 100;
 }
 
@@ -214,15 +237,16 @@ body {
 }
 
 .modal {
-  background: #16161c;
-  border: 1px solid var(--border-glow);
-  padding: 40px 30px;
-  border-radius: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-light);
+  padding: 40px 24px;
+  border-radius: var(--radius-lg);
   text-align: center;
   max-width: 340px;
   width: 90%;
-  transform: scale(0.9);
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(0.95);
+  transition: transform 0.2s ease;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.15);
 }
 
 .overlay.show .modal {
@@ -231,18 +255,18 @@ body {
 
 .modal-icon {
   font-size: 3.5rem;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .modal h2 {
-  font-size: 2rem;
-  color: var(--text-primary);
+  font-size: 1.75rem;
+  color: var(--text-main);
   margin-bottom: 6px;
   font-weight: 700;
 }
 
 .modal p {
   color: var(--text-muted);
-  font-size: 1rem;
-  margin-bottom: 30px;
+  font-size: 0.95rem;
+  margin-bottom: 24px;
 }
